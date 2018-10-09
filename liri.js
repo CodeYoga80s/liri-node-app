@@ -7,10 +7,21 @@ var fs = require("fs");
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 var request = require("request");
-var movieName = process.argv[3];
+var movieName = "";
 var liriReturn = process.argv[2];
 var twitter = require('twitter');
 var client = new twitter(keys.twitter);
+var trackName = process.argv[3];
+var nodeArgs = process.argv;
+for (var i = 3; i < nodeArgs.length; i++) {
+
+    if (i > 3 && i < nodeArgs.length) { 
+        movieName = movieName + "+" + nodeArgs[i]; 
+    }
+    else {
+        movieName += nodeArgs[i];
+    }
+  }
 
 
 // Using the switch statement in place of if statements for the defined functions below.  This statement will execute the desired command by the users.
@@ -20,7 +31,7 @@ switch (liriReturn) {
         break;
 
     case "spotify-this-song":
-        spotifyThisSong();
+        spotifyThisSong(trackName);
         break;
 
     case "movie-this":
@@ -66,7 +77,6 @@ function myTweets() {
 
 // Object constructor and function for my tweets.  Error handling is also functioned in.
 function spotifyThisSong(trackName) {
-    var trackName = process.argv[3];
     if (!trackName) {
         trackName = "The Sign";
     };
@@ -101,6 +111,9 @@ function spotifyThisSong(trackName) {
 function movieThis() {
 
     //using movieName from var list at top
+    if (!movieName) {
+        movieName = "Mr.Nobody";
+    }
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 
     request(queryUrl, function (error, response, body) {
@@ -134,7 +147,8 @@ function doWhatItSays() {
 
     fs.readFile('random.txt', "utf8", function(error, data){
         var txt = data.split(',');
-    
-        console.log(spotifyThisSong(txt[1]));
+        trackName = txt[1];
+        spotifyThisSong(trackName);
+
       });
 };
