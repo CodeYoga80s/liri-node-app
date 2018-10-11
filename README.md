@@ -14,13 +14,18 @@ HOW TO GET STARTED:
   o	npm init -y
 •	Create a .env file and store your API keys in there.  Then create a key.js file which references your .env file to retrieve the keys.
 •	Through command line, run the following commands to download the app related packages.
+
   o	Twitter API
     *	npm install twitter
+    
   o	Spotify API
-    *	Npm install  - -save node-spotify-api
-•	No spaces between the dashes before save
+    *	Npm install  --save node-spotify-api
+    
   o	DotEnv
     *	Npm add dotenv
+    
+  o	FS
+    *	npm install fs
 
 USING THE APP:
 Type the following commands for each app:
