@@ -16,16 +16,16 @@ HOW TO GET STARTED:
 •	Through command line, run the following commands to download the app related packages.
 
   o	Twitter API
-    *	npm install twitter
+    -->	npm install twitter
     
   o	Spotify API
-    *	Npm install  --save node-spotify-api
+    -->	Npm install  --save node-spotify-api
     
   o	DotEnv
-    *	Npm add dotenv
+    -->	Npm add dotenv
     
   o	FS
-    *	npm install fs
+    -->	npm install fs
 
 USING THE APP:
 Type the following commands for each app:
