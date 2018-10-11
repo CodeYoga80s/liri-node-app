@@ -11,7 +11,9 @@ LIRI allows one to conduct research on one of the topics of choice listed below 
 HOW TO GET STARTED:
 •	Request your Twitter, Spotify, and OMDB API Keys.
 •	Download the package.json using the following command in Git Bash:
+
   o	npm init -y
+  
 •	Create a .env file and store your API keys in there.  Then create a key.js file which references your .env file to retrieve the keys.
 •	Through command line, run the following commands to download the app related packages.
 
