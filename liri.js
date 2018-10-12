@@ -8,9 +8,9 @@ var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 var request = require("request");
 var liriReturn = process.argv[2];
-var twitter = require('twitter');
-var client = new twitter(keys.twitter);
-  var term = process.argv.slice(3).join(" ");
+var Twitter = require('twitter');
+var client = new Twitter(keys.twitter);
+var term = process.argv.slice(3).join(" ");
 runProgram();
 // Using the switch statement in place of if statements for the defined functions below.  This statement will execute the desired command by the users.
 function runProgram(){
@@ -54,6 +54,8 @@ function myTweets() {
     var params = { screen_name: 'CodeYoga80s' };
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
         if (!error) {
+            // var object = JSON.parse(response);
+            // console.log("this is the " + object);
             for (var i = 0; i < tweets.length; i++) {
 
                 console.log(tweets[i].text);
